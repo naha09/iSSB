@@ -1285,7 +1285,7 @@ namespace GameEngine
 	{
 		if(b)
 		{
-			characters = (char*)realloc(characters, total+5);
+			characters = (char*)realloc(characters, total+6);
 			characters[total]   = 't';
 			characters[total+1] = 'r';
 			characters[total+2] = 'u';
@@ -1295,7 +1295,7 @@ namespace GameEngine
 		}
 		else
 		{
-			characters = (char*)realloc(characters, total+6);
+			characters = (char*)realloc(characters, total+7);
 			characters[total]   = 'f';
 			characters[total+1] = 'a';
 			characters[total+2] = 'l';
@@ -1484,7 +1484,7 @@ namespace GameEngine
 	{
 		if(b)
 		{
-			characters = (char*)realloc(characters, 5);
+			characters = (char*)realloc(characters, 6);
 			characters[0] = 't';
 			characters[1] = 'r';
 			characters[2] = 'u';
@@ -1494,7 +1494,7 @@ namespace GameEngine
 		}
 		else
 		{
-			characters = (char*)realloc(characters, 6);
+			characters = (char*)realloc(characters, 7);
 			characters[0] = 'f';
 			characters[1] = 'a';
 			characters[2] = 'l';

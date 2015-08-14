@@ -186,13 +186,13 @@ namespace SmashBros
 
 	void Menus::loadAssets()
 	{
-		Game::setLoadBar(0, 588, 900, 12, Color::RED);
+		Game::setLoadBar(0, 1000, 2600, 60, Color::WHITE);
 		
 		//Creating Music List
 		MusicManager::addSong("Main Theme", "Music/Smash Bros Brawl/Main Theme.ogg");
 		MusicManager::addSong("Main Theme Remix", "Music/Smash Bros Brawl/Main Theme Remix.ogg");
 		MusicManager::addSong("Menu Theme", "Music/Smash Bros Brawl/Menu Theme.ogg");
-		MusicManager::addSong("Battlefield v2", "Music/Smash Bros Brawl/Battlefield v2.ogg");
+		MusicManager::addSong("Battlefield v2", "Music/Smash Bros Brawl/Battlefield.ogg");
 		MusicManager::addSong("Final Destination", "Music/Smash Bros Brawl/Final Destination.ogg");
 		
 		MusicManager::addSong("Zelda Theme", "Music/Legend of Zelda/Main Theme.ogg");
@@ -258,8 +258,11 @@ namespace SmashBros
 		BatchLoader::addImage("Images/Menus/CharacterSelect/icons/ichigo.png");
 		BatchLoader::addImage("Images/Menus/CharacterSelect/icons/fox.png");
 		BatchLoader::addImage("Images/Menus/CharacterSelect/icons/sonic.png");
-		BatchLoader::addImage("Images/Menus/CharacterSelect/icons/pikachu.png");
+        BatchLoader::addImage("Images/Menus/CharacterSelect/icons/pikachu.png");
 		BatchLoader::addImage("Images/Menus/CharacterSelect/icons/link.png");
+        BatchLoader::addImage("Images/Menus/CharacterSelect/icons/goku.png");
+        BatchLoader::addImage("Images/Menus/CharacterSelect/icons/dante.png");
+        BatchLoader::addImage("Images/Menus/CharacterSelect/icons/zero.png");
 		BatchLoader::addImage("Images/Menus/CharacterSelect/icons/bowser.png");
 		BatchLoader::addImage("Images/Menus/CharacterSelect/coins/coin.png");
 		BatchLoader::addImage("Images/Menus/CharacterSelect/coins/coin1.png");
@@ -279,6 +282,9 @@ namespace SmashBros
 		BatchLoader::addImage("Images/Menus/CharacterSelect/previews/fox.png");
 		BatchLoader::addImage("Images/Menus/CharacterSelect/previews/pikachu.png");
 		BatchLoader::addImage("Images/Menus/CharacterSelect/previews/link.png");
+        BatchLoader::addImage("Images/Menus/CharacterSelect/previews/goku.png");
+        BatchLoader::addImage("Images/Menus/CharacterSelect/previews/dante.png");
+        BatchLoader::addImage("Images/Menus/CharacterSelect/previews/zero.png");
 		BatchLoader::addImage("Images/Menus/StageSelect/test.png");
 		BatchLoader::addImage("Images/Menus/StageSelect/default.png");
 		BatchLoader::addImage("Images/Menus/StageSelect/hillside_battleground.png");
@@ -306,7 +312,7 @@ namespace SmashBros
 
 	void Menus::loadMenus()
 	{
-		description = new TextActor(235,578,"", AssetManager::getFont("Fonts/arial.ttf", Font::BOLD,20),Color::BLACK);
+		description = new TextActor(235,578,"", AssetManager::getFont("Fonts/arial.ttf", Font::BOLD,20),Color::WHITE);
 		description->setAlignment(TextActor::ALIGN_BOTTOMLEFT);
 		
 		//backclick = new WAV("Sounds/Menus/ButtonBack.wav");
@@ -315,7 +321,7 @@ namespace SmashBros
 		//menutheme = new MP3("Music/MainMenu.mp3");
 		//menutheme.open();
 
-		button_back = new BackButton(63,35);
+		button_back = new BackButton(150,1140);
 		
 		Animation*anim = new Animation("normal",1);
 		anim->addFrame("Images/Menus/Buttons/Generic/back.png");
@@ -324,7 +330,7 @@ namespace SmashBros
 		anim->addFrame("Images/Menus/Buttons/Generic/back_selected.png");
 		button_back->addAnimation(anim);
 		button_back->changeAnimation("normal", FORWARD);
-		button_back->setScale(1.875f);
+		button_back->setScale(3.375f);
 		
 		ScreenManager::Add(new WinnerScreen("Winners"));
 		

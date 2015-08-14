@@ -11,13 +11,13 @@ namespace SmashBros
 	
 	bool Preferences::highfps = false;
 	
-	const String Preferences::version = "2.21";
+	const String Preferences::version = "Alpha 1.0";
 	
 	bool Preferences::newVersion = false;
 	
 	bool Preferences::debuglog = false;
 	
-	String Preferences::versionMessage = (String)"Welcome to iSSB v2.21! Please consider donating by going to \"Options\", selecting \"Other\", and then selecting \"Donate\". Thank you!";
+	String Preferences::versionMessage = (String)"Welcome to ISSB 2 Mod! This is still a WIP feel free to make recomendations. Please consider donating to the developer Luis Finke by going to \"Options\", selecting \"Other\", and then selecting \"Donate\". Thank you!";
 	
 	PrefManager Preferences::prefMgr = PrefManager();
 	

@@ -9,7 +9,7 @@ namespace SmashBros
 		xOffset = 0;
 		addAnimation(new Animation("normal",1,"Images/Menus/Buttons/Generic/options_bar_small.png"));
 		changeAnimation("normal",FORWARD);
-		this->label = new TextActor(label,AssetManager::getFont("Fonts/arial.ttf", Font::BOLD, labelSize),Color::BLACK);
+		this->label = new TextActor(label,AssetManager::getFont("Fonts/arial.ttf", Font::BOLD, labelSize),Color::WHITE);
 		this->label->setAlignment(TextActor::ALIGN_CENTER);
 	}
 

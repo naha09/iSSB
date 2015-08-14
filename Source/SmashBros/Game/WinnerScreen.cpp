@@ -398,6 +398,9 @@ namespace SmashBros
 				
 			case 6:
 			return "6th Place";
+                
+            case 7:
+            return "7th Place";
 		}
 		return "";
 	}

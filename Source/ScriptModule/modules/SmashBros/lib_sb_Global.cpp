@@ -37,6 +37,9 @@ namespace SmashBros
 		m_smashbros_global->add_global_const(chaiscript::const_var(SmashBros::Global::CHAR_FOX), "CHAR_FOX");
 		m_smashbros_global->add_global_const(chaiscript::const_var(SmashBros::Global::CHAR_PIKACHU), "CHAR_PIKACHU");
 		m_smashbros_global->add_global_const(chaiscript::const_var(SmashBros::Global::CHAR_LINK), "CHAR_LINK");
+        m_smashbros_global->add_global_const(chaiscript::const_var(SmashBros::Global::CHAR_GOKU), "CHAR_GOKU");
+        m_smashbros_global->add_global_const(chaiscript::const_var(SmashBros::Global::CHAR_DANTE), "CHAR_DANTE");
+        m_smashbros_global->add_global_const(chaiscript::const_var(SmashBros::Global::CHAR_ZERO), "CHAR_ZERO");
 
 		m_smashbros_global->add_global_const(chaiscript::const_var(SmashBros::Global::STAGE_FRACTALSTAGE), "STAGE_FRACTALSTAGE");
 		m_smashbros_global->add_global_const(chaiscript::const_var(SmashBros::Global::STAGE_HILLSIDEBATTLEGROUND), "STAGE_HILLSIDEBATTLEGROUND");

@@ -7,6 +7,9 @@
 #include "Game/Characters/Fox.h"
 #include "Game/Characters/Pikachu.h"
 #include "Game/Characters/Link.h"
+#include "Game/Characters/Goku.h"
+#include "Game/Characters/Dante.h"
+#include "Game/Characters/Zero.h"
 
 #include "Game/Stages/FractalStage.h"
 #include "Game/Stages/HillsideBattleground.h"
@@ -42,7 +45,16 @@ namespace SmashBros
 			
 			case Global::CHAR_LINK:
 			return "link.png";
+                
+            case Global::CHAR_GOKU:
+            return "goku.png";
 			
+            case Global::CHAR_DANTE:
+            return "dante.png";
+                
+            case Global::CHAR_ZERO:
+            return "zero.png";
+                
 			default:
 			if(charNo <= Global::totalCharacters)
 			{
@@ -86,6 +98,15 @@ namespace SmashBros
 			
 			case Global::CHAR_LINK:
 			return "Link";
+                
+            case Global::CHAR_GOKU:
+            return "Goku";
+                
+            case Global::CHAR_DANTE:
+            return "Dante";
+                
+            case Global::CHAR_ZERO:
+            return "Zero";
 		}
 	}
 	
@@ -133,6 +154,21 @@ namespace SmashBros
 			case Global::CHAR_LINK:
 			p = new Link(x1,y1,playerNo,team);
 			p->charNo = Global::CHAR_LINK;
+                
+            case Global::CHAR_GOKU:
+            p = new Goku(x1,y1,playerNo,team);
+            p->charNo = Global::CHAR_GOKU;
+            break;
+                
+            case Global::CHAR_DANTE:
+            p = new Dante(x1,y1,playerNo,team);
+            p->charNo = Global::CHAR_DANTE;
+            break;
+                
+            case Global::CHAR_ZERO:
+            p = new Zero(x1,y1,playerNo,team);
+            p->charNo = Global::CHAR_ZERO;
+            break;
 		}
 		return p;
 	}
@@ -187,6 +223,27 @@ namespace SmashBros
 			win_fps = 8;
 			win_rows = 4;
 			break;
+                
+            case Global::CHAR_GOKU:
+            win_fps = 5;
+            win_rows = 6;
+            lose_fps = 8;
+            lose_rows = 4;
+            break;
+                
+            case Global::CHAR_DANTE:
+            win_fps = 5;
+            win_rows = 6;
+            lose_fps = 8;
+            lose_rows = 4;
+            break;
+                
+            case Global::CHAR_ZERO:
+            win_fps = 5;
+            win_rows = 6;
+            lose_fps = 8;
+            lose_rows = 4;
+            break;
 		}
 		
 		String charFolder = getFolder(charNo);

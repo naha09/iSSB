@@ -153,7 +153,7 @@ struct SDL_SysWMmsg
         } cocoa;
 #endif
 #if defined(SDL_VIDEO_DRIVER_UIKIT)
-        struct
+       struct
         {
             /* No UIKit window events yet */
         } uikit;

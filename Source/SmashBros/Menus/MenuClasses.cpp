@@ -59,7 +59,7 @@ namespace SmashBros
 		anim->addFrame("Images/Menus/titlescreen.png");
 		titleScreen->addAnimation(anim);
 		titleScreen->changeAnimation("title", FORWARD);
-		titleScreen->setScale(1.876f);
+		titleScreen->setScale(2.0f);
 	}
 	
 	void TitleScreen::Update(long gameTime)
@@ -99,19 +99,20 @@ namespace SmashBros
 
 	void MainMenu::Initialize()
 	{
-		addItem(260, 180, "Images/Menus/Buttons/Group/group.png", "Images/Menus/Buttons/Group/group_selected.png", "GroupMenu");
+		addItem(1600, 300, "Images/Menus/Buttons/Group/group.png", "Images/Menus/Buttons/Group/group_selected.png", "GroupMenu");
 		setItemScale(0,1.15f);
 		setItemSound(0, Menus::soundMgr->getSound("select menu item"));
-		addItem(630, 215, "Images/Menus/Buttons/Solo/solo.png", "Images/Menus/Buttons/Solo/solo_selected.png", "SoloMenu");
+		addItem(1600, 650, "Images/Menus/Buttons/Solo/solo.png", "Images/Menus/Buttons/Solo/solo_selected.png", "SoloMenu");
 		setItemScale(1,1.15f);
 		setItemSound(1, Menus::soundMgr->getSound("select menu item"));
-		addItem(700, 395, "Images/Menus/Buttons/Options/options.png", "Images/Menus/Buttons/Options/options_selected.png", "OptionsMenu");
-		setItemScale(2,1.25f);
+		addItem(1600, 1000, "Images/Menus/Buttons/Options/options.png", "Images/Menus/Buttons/Options/options_selected.png", "OptionsMenu");
+		setItemScale(2,1.15f);
 		setItemSound(2, Menus::soundMgr->getSound("select menu item"));
 		if(GameEngine::isOnPlatform("ios"))
 		{
-			addItem(200, 400, "Images/Menus/Buttons/Bluetooth/Bluetooth.png", "Images/Menus/Buttons/Bluetooth/Bluetooth_selected.png", "BluetoothMenu");
-			setItemSound(3, Menus::soundMgr->getSound("select menu item"));
+			addItem(260, 800, "Images/Menus/Buttons/Bluetooth/Bluetooth.png", "Images/Menus/Buttons/Bluetooth/Bluetooth_selected.png", "BluetoothMenu");
+            setItemScale(3,1.15f);
+            setItemSound(3, Menus::soundMgr->getSound("select menu item"));
 		}
 	}
 
@@ -123,7 +124,7 @@ namespace SmashBros
 			Menus::playSong("Menu Theme");
 		}
 		Menus::menuNo = MENU_MAINMENU;
-		Game::setBackgroundImage("Images/Menus/Backgrounds/bg2.png");
+		Game::setBackgroundImage("Images/Menus/Backgrounds/mainmenubg.png");
 		if(Preferences::menuSoundFXOn())
 		{
 			this->enableSound(true);
@@ -148,15 +149,15 @@ namespace SmashBros
 			break;
 					
 			case 0:
-			Menus::description->setText("Play a variety of Smash modes with multiple players");
+			//Menus::description->setText("Play a variety of Smash modes with multiple players");
 			break;
 					
 			case 1:
-			Menus::description->setText("Play this mode solo or challenge it coopertively");
+			//Menus::description->setText("Play this mode solo or challenge it coopertively");
 			break;
 					
 			case 2:
-			Menus::description->setText("Choose and save your own personal Smash settings");
+			//Menus::description->setText("Choose and save your own personal Smash settings");
 			break;
 		}
 	}
@@ -180,10 +181,10 @@ namespace SmashBros
 
 	void GroupMenu::Initialize()
 	{
-		addItem(280, 200, "Images/Menus/Buttons/Group/brawl.png", "Images/Menus/Buttons/Group/brawl_selected.png", "BrawlCharSelect");
+		addItem(1500, 500, "Images/Menus/Buttons/Group/brawl.png", "Images/Menus/Buttons/Group/brawl_selected.png", "BrawlCharSelect");
 		setItemSound(0, Menus::soundMgr->getSound("select menu item"));
-		addItem(680, 220, "Images/Menus/Buttons/Group/rules.png", "Images/Menus/Buttons/Group/rules_selected.png", "RulesMenu");
-		setItemScale(1, 2);
+		addItem(1500, 850, "Images/Menus/Buttons/Group/rules.png", "Images/Menus/Buttons/Group/rules_selected.png", "RulesMenu");
+		setItemScale(1, 1);
 		setItemSound(1, Menus::soundMgr->getSound("select menu item"));
 	}
 
@@ -194,7 +195,7 @@ namespace SmashBros
 		{
 			Global::gameMode = Global::MODE_TIME_LIMIT;
 		}
-		Game::setBackgroundImage("Images/Menus/Backgrounds/bg2.png");
+		Game::setBackgroundImage("Images/Menus/Backgrounds/groupbg.png");
 		if(Preferences::menuSoundFXOn())
 		{
 			this->enableSound(true);
@@ -216,7 +217,7 @@ namespace SmashBros
 			break;
 					
 			case 0:
-			Menus::description->setText("Jump right in and start brawling with your friends!");
+			//Menus::description->setText("Jump right in and start brawling with your friends!");
 			break;
 		}
 		Menus::description->Update(gameTime);
@@ -241,15 +242,16 @@ namespace SmashBros
 
 	void SoloMenu::Initialize()
 	{
-		addItem(700, 380, "Images/Menus/Buttons/Solo/training.png", "Images/Menus/Buttons/Solo/training_selected.png", "TrainingCharSelect");
+		addItem(1600, 300, "Images/Menus/Buttons/Solo/training.png", "Images/Menus/Buttons/Solo/training_selected.png", "TrainingCharSelect");
 		//setItemScale(0, 1.6f);
+        setItemScale(0,1.15f);
 		setItemSound(0, Menus::soundMgr->getSound("select menu item"));
 	}
 
 	void SoloMenu::LoadContent()
 	{
 		Menus::menuNo = MENU_SOLOMENU;
-		Game::setBackgroundImage("Images/Menus/Backgrounds/bg2.png");
+		Game::setBackgroundImage("Images/Menus/Backgrounds/solobg.png");
 		if(Preferences::menuSoundFXOn())
 		{
 			this->enableSound(true);
@@ -431,15 +433,15 @@ namespace SmashBros
 		
 		Animation*normal = new Animation("normal",1,"Images/Menus/Buttons/Generic/rules_bar.png");
 		Animation*hover = new Animation("hover",1,"Images/Menus/Buttons/Generic/rules_bar_selected.png");
-		rules_bar = new RulesBar(684,50);
+		rules_bar = new RulesBar(684,80);
 		rules_bar->addAnimation(normal);
 		rules_bar->addAnimation(hover);
 		rules_bar->changeAnimation("normal", FORWARD);
-		rules_bar->setScale(1.8f);
-		rules_bar_value = new TextActor(510,60,"02",AssetManager::getFont("Fonts/arial.ttf", Font::BOLD, 30),Color::BLACK);
-		rules_bar_value->setAlignment(TextActor::ALIGN_BOTTOMLEFT);
-		rules_bar_text = new TextActor(560,60,"",AssetManager::getFont("Fonts/arial.ttf", Font::BOLD, 26),Color::BLACK);
-		rules_bar_text->setAlignment(TextActor::ALIGN_BOTTOMLEFT);
+		rules_bar->setScale(2.8f);
+		rules_bar_value = new TextActor(510,60,"02",AssetManager::getFont("Fonts/arial.ttf", Font::BOLD, 30),Color::WHITE);
+		rules_bar_value->setAlignment(TextActor::ALIGN_CENTER);
+		rules_bar_text = new TextActor(560,80,"",AssetManager::getFont("Fonts/arial.ttf", Font::BOLD, 26),Color::BLACK);
+		rules_bar_text->setAlignment(TextActor::ALIGN_CENTER);
 		
 		readyToFight = new ReadyToFightBar((float)View::getScalingWidth()/2, 380);
 		readyToFight->addAnimation(new Animation("normal",1,"Images/Menus/Buttons/Generic/readytofight.png"));
@@ -461,10 +463,10 @@ namespace SmashBros
 			rules_arrows->setProperties(Global::minTime, Global::maxTime, 1);
 			break;
 		}
-		rules_arrows->setScale(1.5f);
+		rules_arrows->setScale(2.5f);
 		
-		teams_button = new TeamsButton(260,35);
-		teams_button->setScale(1.7f);
+		teams_button = new TeamsButton(1150,1100);
+		teams_button->setScale(3.7f);
 		
 		teams_button->addAnimation(new Animation("normal",1,"Images/Menus/Buttons/Group/freeforall.png"));
 		teams_button->addAnimation(new Animation("hover",1,"Images/Menus/Buttons/Group/freeforall_selected.png"));
@@ -532,7 +534,7 @@ namespace SmashBros
 		{
 			teams_button->changeAnimation("normal", FORWARD);
 		}
-		Game::setBackgroundImage("Images/Menus/Backgrounds/bg1.png");
+		Game::setBackgroundImage("Images/Menus/Backgrounds/characterslectionbg.png");
 	}
 	
 	void BrawlCharSelect::Update(long gameTime)
@@ -676,7 +678,7 @@ namespace SmashBros
 			Menus::menuNo = MENU_P2PSTAGESELECT;
 		}
 		Global::gameType = Global::TYPE_GROUPBRAWL;
-		Game::setBackgroundImage("Images/Menus/Backgrounds/bg1.png");
+		Game::setBackgroundImage("Images/Menus/Backgrounds/groupbg.png");
 	}
 	
 	void BrawlStageSelect::Update(long gameTime)
@@ -724,24 +726,24 @@ namespace SmashBros
 
 	void OptionsMenu::Initialize()
 	{
-		addItem(140, 270, "Images/Menus/Buttons/Options/controls.png", "Images/Menus/Buttons/Options/controls_selected.png", "ControlOptions");
-		setItemScale(0, 1.6f);
+		addItem(440, 450, "Images/Menus/Buttons/Options/controls.png", "Images/Menus/Buttons/Options/controls_selected.png", "ControlOptions");
+		setItemScale(0, 1.4f);
 		setItemSound(0, Menus::soundMgr->getSound("select menu item"));
-		addItem(346, 270, "Images/Menus/Buttons/Options/sound.png", "Images/Menus/Buttons/Options/sound_selected.png", "AudioOptions");
-		setItemScale(1, 1.6f);
+		addItem(1500, 450, "Images/Menus/Buttons/Options/sound.png", "Images/Menus/Buttons/Options/sound_selected.png", "AudioOptions");
+		setItemScale(1, 1.4f);
 		setItemSound(1, Menus::soundMgr->getSound("select menu item"));
-		addItem(554, 270, "Images/Menus/Buttons/Options/display.png", "Images/Menus/Buttons/Options/display_selected.png", "DisplayOptions");
-		setItemScale(2, 1.6f);
+		addItem(440, 900, "Images/Menus/Buttons/Options/display.png", "Images/Menus/Buttons/Options/display_selected.png", "DisplayOptions");
+		setItemScale(2, 1.4f);
 		setItemSound(2, Menus::soundMgr->getSound("select menu item"));
-		addItem(760, 270, "Images/Menus/Buttons/Options/other.png", "Images/Menus/Buttons/Options/other_selected.png", "OtherOptions");
-		setItemScale(3, 1.6f);
+		addItem(1500, 900, "Images/Menus/Buttons/Options/other.png", "Images/Menus/Buttons/Options/other_selected.png", "OtherOptions");
+		setItemScale(3, 1.4f);
 		setItemSound(3, Menus::soundMgr->getSound("select menu item"));
 	}
 
 	void OptionsMenu::LoadContent()
 	{
 		Menus::menuNo = MENU_OPTIONSMENU;
-		Game::setBackgroundImage("Images/Menus/Backgrounds/bg2.png");
+		Game::setBackgroundImage("Images/Menus/Backgrounds/optionsbg.png");
 		if(Preferences::menuSoundFXOn())
 		{
 			this->enableSound(true);
@@ -821,19 +823,19 @@ namespace SmashBros
 		button_x->setScale(2);
 		button_x->setAlpha(0.2f);
 		
-        arrow_up = new Actor(150, 375);
+        arrow_up = new Actor(200, 375);
         arrow_up->addAnimation(new Animation("normal", 1, "Images/Game/Controls/arrow_up.png"));
         arrow_up->changeAnimation("normal", FORWARD);
         arrow_up->setRelativeToView(false);
 		arrow_up->setScale(2);
-		arrow_up->setAlpha(0.5f);
+		arrow_up->setAlpha(0.9f);
 		
-        arrow_down = new Actor(150, 525);
+        arrow_down = new Actor(200, 525);
         arrow_down->addAnimation(new Animation("normal", 1, "Images/Game/Controls/arrow_down.png"));
         arrow_down->changeAnimation("normal", FORWARD);
         arrow_down->setRelativeToView(false);
 		arrow_down->setScale(2);
-		arrow_down->setAlpha(0.5f);
+		arrow_down->setAlpha(0.9f);
 		
         arrow_left = new Actor(75, 450);
         arrow_left->addAnimation(new Animation("normal", 1, "Images/Game/Controls/arrow_left.png"));
@@ -902,7 +904,7 @@ namespace SmashBros
 	void ControlOptions::LoadContent()
 	{
 		Menus::menuNo = MENU_CONTROLOPTIONS;
-		Game::setBackgroundImage("Images/Menus/Backgrounds/bg1.png");
+		Game::setBackgroundImage("Images/Menus/Backgrounds/controlsbg.png");
 		if(Controls::isJoystickActive())
 		{
 			joystickEnabled = true;
@@ -1206,22 +1208,22 @@ namespace SmashBros
 		prevMenusoundfx = Preferences::menuSoundFXOn();
 		prevIngamemusic = Preferences::ingameMusicOn();
 
-		menumusic = new MenuBarToggle(300,130,"Menu Music",prevMenumusic);
-		menumusic->setScale(1.6f);
+		menumusic = new MenuBarToggle(500,330,"Menu Music",prevMenumusic);
+		menumusic->setScale(3.6f);
 		
-		menusoundfx = new MenuBarToggle(300,200,"Menu SoundFX",prevMenusoundfx);
-		menusoundfx->setScale(1.6f);
+		menusoundfx = new MenuBarToggle(500,600,"Menu SoundFX",prevMenusoundfx);
+		menusoundfx->setScale(3.6f);
 		menusoundfx->setTextOffsetX(18);
 		
-		ingamemusic = new MenuBarToggle(300,270,"In-Game Music",prevIngamemusic);
-		ingamemusic->setScale(1.6f);
+		ingamemusic = new MenuBarToggle(500,870,"In-Game Music",prevIngamemusic);
+		ingamemusic->setScale(3.6f);
 		ingamemusic->setTextOffsetX(20);
 	}
 	
 	void AudioOptions::LoadContent()
 	{
 		Menus::menuNo = MENU_AUDIOOPTIONS;
-		Game::setBackgroundImage("Images/Menus/Backgrounds/bg2.png");
+		Game::setBackgroundImage("Images/Menus/Backgrounds/optionsbg.png");
 	}
 	
 	void AudioOptions::UnloadContent()
@@ -1295,7 +1297,7 @@ namespace SmashBros
 		fullScreen->Scale = 1.6f;
 		prevFullscreen = fullScreen->getToggle();*/
 		
-		fps = new MenuBarValue(300, 130/*200*/, "Frame Rate");
+		fps = new MenuBarValue(1500, 780/*200*/, "Frame Rate");
 		if(Preferences::highFPS())
 		{
 			fps->setValue(60);
@@ -1305,13 +1307,13 @@ namespace SmashBros
 			fps->setValue(30);
 		}
 		fps->setProperties(30, 60, 30);
-		fps->setScale(1.6f);
+		fps->setScale(3.9f);
 	}
 	
 	void DisplayOptions::LoadContent()
 	{
 		Menus::menuNo = MENU_DISPLAYOPTIONS;
-		Game::setBackgroundImage("Images/Menus/Backgrounds/bg2.png");
+		Game::setBackgroundImage("Images/Menus/Backgrounds/optionsbg.png");
 		if(Preferences::highFPS())
 		{
 			fps->setValue(60);
@@ -1369,6 +1371,13 @@ namespace SmashBros
 		openURL("https://www.twitter.com/lufinkey/");
 	}
 	
+    OtherOptions::Twitter2Button::Twitter2Button(float x1, float y1, const String&label) : MenuBarSmallButton(x1,y1,label) {}
+    OtherOptions::Twitter2Button::~Twitter2Button() {}
+    void OtherOptions::Twitter2Button::onRelease()
+    {
+        openURL("http://hackinformer.com/forum/thread-450-post-1489.html#pid1489");
+    }
+    
 	OtherOptions::ContactDeveloperButton::ContactDeveloperButton(float x1, float y1, const String&label) : MenuBarSmallButton(x1,y1,label) {}
 	OtherOptions::ContactDeveloperButton::~ContactDeveloperButton() {}
 	void OtherOptions::ContactDeveloperButton::onRelease()
@@ -1394,7 +1403,8 @@ namespace SmashBros
 	{
 		facebook = NULL;
 		twitter = NULL;
-		contactDev = NULL;
+        twitter2 = NULL;
+        contactDev = NULL;
 		donate = NULL;
 		donateBitcoin = NULL;
 	}
@@ -1409,6 +1419,10 @@ namespace SmashBros
 		{
 			delete twitter;
 		}
+        if(twitter2!=NULL)
+        {
+            delete twitter2;
+        }
 		if(contactDev!=NULL)
 		{
 			delete contactDev;
@@ -1425,29 +1439,33 @@ namespace SmashBros
 	
 	void OtherOptions::Initialize()
 	{
-		facebook = new FacebookButton(200,140, "Our Facebook");
+		facebook = new FacebookButton(1700,250, "Our Facebook");
 		facebook->setScale(2.0f);
 		facebook->setLabelSize(14);
 		
-		twitter = new TwitterButton(200,200, "Follow on Twitter");
+		twitter = new TwitterButton(1700,400, "Follow on Twitter");
 		twitter->setScale(2.0f);
 		twitter->setLabelSize(14);
 		twitter->setTextOffsetX(10);
 		
-		contactDev = new ContactDeveloperButton(200,260, "Email Developer");
+		contactDev = new ContactDeveloperButton(1700,550, "Email Developer");
 		contactDev->setScale(2.0f);
 		contactDev->setLabelSize(14);
 		contactDev->setTextOffsetX(8);
 		
-		donate = new DonateButton(200,320, "Donate");
+		donate = new DonateButton(1700,700, "Donate");
 		donate->setScale(2.0f);
 		donate->setLabelSize(14);
 		donate->setTextOffsetX(-26);
 		
-		donateBitcoin = new DonateBitcoinButton(200,380, "Donate Bitcoin");
+		donateBitcoin = new DonateBitcoinButton(1700,850, "Donate Bitcoin");
 		donateBitcoin->setScale(2.0f);
 		donateBitcoin->setLabelSize(14);
-	}
+        
+        twitter2 = new Twitter2Button(1700,1000, "Hackinformer Forum");
+        twitter2->setScale(2.0f);
+        twitter2->setLabelSize(14);
+        twitter2->setTextOffsetX(10);	}
 	
 	void OtherOptions::LoadContent()
 	{
@@ -1459,6 +1477,7 @@ namespace SmashBros
 		Menus::button_back->Update(gameTime);
 		facebook->Update(gameTime);
 		twitter->Update(gameTime);
+        twitter2->Update(gameTime);
 		contactDev->Update(gameTime);
 		donate->Update(gameTime);
 		donateBitcoin->Update(gameTime);
@@ -1469,6 +1488,7 @@ namespace SmashBros
 		Menus::button_back->Draw(g, gameTime);
 		facebook->Draw(g, gameTime);
 		twitter->Draw(g, gameTime);
+        twitter2->Draw(g, gameTime);
 		contactDev->Draw(g, gameTime);
 		donate->Draw(g, gameTime);
 		donateBitcoin->Draw(g, gameTime);
@@ -1525,16 +1545,16 @@ namespace SmashBros
 		createCards(types);
 		createCharIcons();
 		resetCards(types);
-		trainingBanner = new Actor(260,35);
+		trainingBanner = new Actor(690,80);
 		trainingBanner->addAnimation(new Animation("normal",1,"Images/Menus/Buttons/Solo/training_mode.png"));
 		trainingBanner->changeAnimation("normal",FORWARD);
-		trainingBanner->setScale(1.8f);
+		trainingBanner->setScale(2.8f);
 		
-		readyToFight = new ReadyToFightBar(450, 380);
+		readyToFight = new ReadyToFightBar(1500, 1150);
 		readyToFight->addAnimation(new Animation("normal",1,"Images/Menus/Buttons/Generic/readytofight.png"));
 		readyToFight->addAnimation(new Animation("hover",1,"Images/Menus/Buttons/Generic/readytofight_selected.png"));
 		readyToFight->changeAnimation("normal", FORWARD);
-		readyToFight->setScale(1.845f);
+		readyToFight->setScale(5.845f);
 	}
 	
 	void TrainingCharSelect::LoadContent()
@@ -1552,7 +1572,7 @@ namespace SmashBros
 			wasReadyToFight = false;
 		}
 		Menus::menuNo=MENU_TRAININGCHARSELECT;
-		Game::setBackgroundImage("Images/Menus/Backgrounds/bg1.png");
+		Game::setBackgroundImage("Images/Menus/Backgrounds/characterslectionbg.png");
 	}
 
 	void TrainingCharSelect::Update(long gameTime)
@@ -1600,7 +1620,7 @@ namespace SmashBros
 		Menus::menuNo = MENU_TRAININGSTAGESELECT;
 		Global::gameType = Global::TYPE_TRAINING;
 		Global::gameMode = Global::MODE_FREEFORALL;
-		Game::setBackgroundImage("Images/Menus/Backgrounds/bg1.png");
+		Game::setBackgroundImage("Images/Menus/Backgrounds/characterslectionbg.png");
 	}
 
 	RulesMenu::RulesMenu(const String&name) : Screen(name)
@@ -1630,21 +1650,21 @@ namespace SmashBros
 	
 	void RulesMenu::Initialize()
 	{
-		gameMode = new ToggleButtons(615,131,645,201);
-		gameMode->setScale(1.4f);
+		gameMode = new ToggleButtons(1800,1000,1800,1000);
+		gameMode->setScale(2.6f);
 		
-		time = new MenuBarValue(300,130,"Time Limit","min");
+		time = new MenuBarValue(1500,300,"Time Limit","min");
 		time->setProperties(Global::minTime, Global::maxTime, 1);
 		time->setValue(Global::timeLimit);
-		time->setScale(1.6f);
+		time->setScale(3.6f);
 				
-		stocks = new MenuBarValue(330,200,"Stock");
+		stocks = new MenuBarValue(1500,650,"Stock");
 		stocks->setProperties(Global::minLives, Global::maxLives, 1);
 		stocks->setValue(Global::stockAmount);
-		stocks->setScale(1.6f);
+		stocks->setScale(3.6f);
 				
-		button_items = new MenuBarSmallButton(660,500,"Item Switch","ItemsMenu");
-		button_items->setScale(1.8f);
+		button_items = new MenuBarSmallButton(1500,1000,"Item Switch","ItemsMenu");
+		button_items->setScale(3.6f);
 	}
 	
 	void RulesMenu::LoadContent()
@@ -1675,7 +1695,7 @@ namespace SmashBros
 		}
 		time->setValue(Global::timeLimit);
 		stocks->setValue(Global::stockAmount);
-		Game::setBackgroundImage("Images/Menus/Backgrounds/bg1.png");
+		Game::setBackgroundImage("Images/Menus/Backgrounds/rulesbg.png");
 	}
 
 	void RulesMenu::Update(long gameTime)
@@ -1818,13 +1838,13 @@ namespace SmashBros
 	
 	void ItemsMenu::Initialize()
 	{
-		paneGrid = new ActorGrid(110,120, 5, 6);
-		paneGrid->setSpacing(140, 60);
-		paneGrid->setScale(1.8f);
+		paneGrid = new ActorGrid(250,120, 5, 6);
+		paneGrid->setSpacing(140, 120);
+		paneGrid->setScale(3.8f);
 				
-		itemGrid = new ActorGrid(80,120, 5, 6);
+		itemGrid = new ActorGrid(250,120, 5, 6);
 		itemGrid->setSpacing(140, 60);
-		itemGrid->setScale(1.6f);
+		itemGrid->setScale(3.6f);
 				
 		addActorsToGrid();
 	}
@@ -1843,7 +1863,7 @@ namespace SmashBros
 		{
 			Menus::menuNo=MENU_ITEMMENU_P2PCHARSELECT;
 		}
-		Game::setBackgroundImage("Images/Menus/Backgrounds/bg2.png");
+		Game::setBackgroundImage("Images/Menus/Backgrounds/itemselectionbg.png");
 		for(int i=0; i<Global::totalItems; i++)
 		{
 			((TogglePane*)paneGrid->get(i))->setToggle(Global::itemsOn[i]);
@@ -1915,7 +1935,7 @@ namespace SmashBros
 		card->addAnimation(new Animation("iPod Touch", 1, "Images/Menus/Buttons/Bluetooth/iPod_Touch.png"));
 		card->addAnimation(new Animation("iPhone", 1, "Images/Menus/Buttons/Bluetooth/iPhone.png"));
 		card->changeAnimation("empty", FORWARD);
-		textDisplay = new TextActor("Click to connect", AssetManager::getFont("Fonts/arial.ttf", Font::PLAIN, 18), Color::BLACK);
+		textDisplay = new TextActor("Click to connect", AssetManager::getFont("Fonts/arial.ttf", Font::PLAIN, 18), Color::WHITE);
 		textDisplay->x = x;
 		textDisplay->y = y+190;
 		textDisplay->setAlignment(TextActor::ALIGN_CENTER);
@@ -2080,7 +2100,7 @@ namespace SmashBros
 	{
 		P2PDataManager::enabled = true;
 		Menus::menuNo = MENU_P2PMENU;
-		Game::setBackgroundImage("Images/Menus/Backgrounds/bg1.png");
+		Game::setBackgroundImage("Images/Menus/Backgrounds/wirelessbg.png");
 		if(!P2PManager::isConnected())
 		{
 			for(int i=0; i<Global::possPlayers; i++)
@@ -2178,7 +2198,7 @@ namespace SmashBros
 	
 	P2PWaitScreen::P2PWaitScreen(const String&name) : Screen(name)
 	{
-		message = new TextActor("Waiting for peer...\n", AssetManager::getFont("Fonts/arial.ttf", Font::BOLD, 18), Color::BLACK);
+		message = new TextActor("Waiting for peer...\n", AssetManager::getFont("Fonts/arial.ttf", Font::BOLD, 18), Color::WHITE);
 		message->setAlignment(TextActor::ALIGN_TOPLEFT);
 		message->x = 100;
 		message->y = 100;

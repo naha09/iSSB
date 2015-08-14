@@ -158,9 +158,9 @@ namespace SmashBros
 		loadFile("Images/Game/Characters/Ichigo/finalsmash_blast.png");
 		loadFile("Images/Game/Characters/Ichigo/blade.png");
 		
-		addTwoSidedAnimation("stand", "stand.png", 6, 4, 1);
+		addTwoSidedAnimation("stand", "stand.png", 6, 10, 1);
 		addTwoSidedAnimation("walk", "walk.png", 6, 4, 1);
-		addTwoSidedAnimation("run", "run.png", 15, 2, 1);
+		addTwoSidedAnimation("run", "run.png", 15, 4, 1);
 		addTwoSidedAnimation("jump", "jump.png", 8, 6, 1);
 		addTwoSidedAnimation("jump2", "jump2.png", 14, 6, 1);
 		addTwoSidedAnimation("land", "land.png", 8, 3, 1);

@@ -107,7 +107,7 @@ namespace SmashBros
 	void CharSelectScreen::LoadContent()
 	{
 		//Menus::menuNo=3;
-		Game::setBackgroundImage("Images/Menus/Backgrounds/bg1.png");
+		Game::setBackgroundImage("Images/Menus/Backgrounds/characterselectionbg.png");
 	}
 
 	void CharSelectScreen::UnloadContent()
@@ -409,11 +409,11 @@ namespace SmashBros
 			cardAvailable[i-1]=false;
 			cardTypes[i-1] = (byte)type.get(i-1);
 			Actor*a = setUpCard(i,type.get(i-1));
-			a->setScale(1.65f);
+			a->setScale(1.5f);
 			Actor*a2 = new Actor(0,0);
-			TextActor*a3 = new TextActor(" ", AssetManager::getFont("Fonts/arial.ttf", Font::BOLD, 12), Color::WHITE);
+			TextActor*a3 = new TextActor(" ", AssetManager::getFont("Fonts/arial.ttf", Font::BOLD, 64), Color::WHITE);
 			a3->setAlignment(TextActor::ALIGN_CENTER);
-			addToGrid(a,100+(space/10),500,type.size(),1,space,0,i);
+			addToGrid(a,200+(space/10),700,type.size(),1,space,0,i);
 			a2->x = a->x;
 			a2->y = a->y - 10;
 			a3->x = a->x - 5;
@@ -436,21 +436,21 @@ namespace SmashBros
 			addToGrid(a,25+(space/10),500,num,1,space,0,i);
 			coinPoints[i-1].x=(int)a->x;
 			coinPoints[i-1].y=(int)a->y;
-			a->setScale(1.4f);
+			a->setScale(3.4f);
 			charCoins.add(a);
 		}
 	}
 
 	void CharSelectScreen::newCharIcon(int num, String anim)
-	{
+	{//the 250 is the spacing for character icons!!!!!!!!!!!!!!!!!!!!!!!!!!
 		CharIcon*a = new CharIcon(num, 0,0, new Animation("normal",1,anim));
-		addToGrid(a,70,115,9,5,95,65,charIcons.size()+1);
+		addToGrid(a,250,250,150,150,200,250,charIcons.size()+1);
 		if(charIcons.size()==0)
 		{
-			charSelectArea->x = a->x - (a->width/2);
+			charSelectArea->x = a->x - (a->width/6);
 			charSelectArea->y = a->y - (a->height/2);
 		}
-		float csW = (a->x + (a->width/2)) - charSelectArea->x;
+		float csW = (a->x + (a->width/6)) - charSelectArea->x;
 		float csH = (a->y + (a->height/2)) - charSelectArea->y;
 		if(csW>charSelectArea->width)
 		{
@@ -795,13 +795,13 @@ namespace SmashBros
 	
 	CharSelectScreen::CharIcon::CharIcon(int num, float x1, float y1, Animation*anim) : Actor(x1,y1)
 	{
-		setScale(1.8f);
+		setScale(3.8f);
 		addAnimation(anim);
 		changeAnimation(anim->name, FORWARD);
 		this->num = num;
 	}
 	
-	CharSelectScreen::CharIcon::~CharIcon()
+    CharSelectScreen::CharIcon::~CharIcon()
 	{
 		//
 	}
@@ -850,7 +850,7 @@ namespace SmashBros
 		teamFlag->addAnimation(new Animation("green",1, "Images/Menus/CharacterSelect/flags/green.png"));
 		teamFlag->changeAnimation("red", FORWARD);
 		
-		teamFlag->setScale(1.4f);
+		teamFlag->setScale(2.4f);
 	}
 	
 	CharSelectScreen::CharCard::~CharCard()

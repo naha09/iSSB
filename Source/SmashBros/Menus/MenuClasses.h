@@ -278,6 +278,15 @@ namespace SmashBros
 			
 			virtual void onRelease();
 		};
+        
+        class Twitter2Button : public MenuBarSmallButton
+        {
+        public:
+            Twitter2Button(float x1, float y1, const String&label);
+            virtual ~Twitter2Button();
+            
+            virtual void onRelease();
+        };
 		
 		class ContactDeveloperButton : public MenuBarSmallButton
 		{
@@ -308,6 +317,7 @@ namespace SmashBros
 		
 		FacebookButton*facebook;
 		TwitterButton*twitter;
+        Twitter2Button*twitter2;
 		ContactDeveloperButton*contactDev;
 		DonateButton*donate;
 		DonateBitcoinButton*donateBitcoin;

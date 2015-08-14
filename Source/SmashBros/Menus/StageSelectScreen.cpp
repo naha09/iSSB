@@ -34,12 +34,12 @@ namespace SmashBros
 		screen->queueLoad = 1;
 		screen->onSelect(num);
 	}
-
+//this is where you change stage select icon size!!!!!
 	StageSelectScreen::StageSelectScreen(const String&name) : Screen(name)
 	{
-		stageGrid = new ActorGrid(80,145, 5, 8);
-		stageGrid->setSpacing(105, 100);
-		stageGrid->setScale(1.5f);
+		stageGrid = new ActorGrid(250, 350, 150, 150);//first is to the right, second is down, ?,?)
+		stageGrid->setSpacing(325, 300);
+		stageGrid->setScale(4.5f);
 		for(int i=0; i<=Global::totalStages; i++)
 		{
 			StageIcon*a = new StageIcon(this, 0,0, i);
@@ -51,12 +51,12 @@ namespace SmashBros
 			a->changeAnimation("normal", FORWARD);
 			stageGrid->add(a);
 		}
-		
-		loadScreen = new Actor(450,300);
+		//this is where you change loading from stage select!!!
+		loadScreen = new Actor(1136,960);
 		loadScreen->addAnimation(new Animation("normal",1,"Images/loading.png"));
 		loadScreen->changeAnimation("normal", FORWARD);
 		loadScreen->setAlpha(0.5f);
-		loadScreen->setScale(1.876f);
+		loadScreen->setScale(2.876f);
 		
 		queueLoad = 0;
 		drawnOnce = false;

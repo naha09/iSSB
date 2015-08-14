@@ -650,7 +650,7 @@ namespace SmashBros
 	HUD::TrainingMenu::TrainingMenu(HUD*hud)
 	{
 		bg = new Actor(0,0);
-		bg->setScale(1.9f);
+		bg->setScale(2.9f);
 		bg->addAnimation(new Animation("normal",1,"Images/Game/HUD/Training/bg.png"));
 		bg->changeAnimation("normal", FORWARD);
 		bg->setVisible(false);
@@ -664,45 +664,46 @@ namespace SmashBros
 		tab->addAnimation(new Animation("opened",1,"Images/Game/HUD/Training/button_close.png"));
 		tab->changeAnimation("closed", FORWARD);
 		tab->setRelativeToView(false);
+        
 		
 		tab->x = (float)tab->width/2;
 		tab->y = 100;
 		
-		apply = new Actor(100,450);
+		apply = new Actor(140,550);
 		apply->addAnimation(new Animation("normal",1,"Images/Game/HUD/Training/button_apply.png"));
 		apply->changeAnimation("normal", FORWARD);
 		apply->setRelativeToView(false);
 		apply->setVisible(false);
-		apply->setScale(1.2f);
+		apply->setScale(2.2f);
 		
-		finish = new Actor(100,500);
+		finish = new Actor(140,680);
 		finish->addAnimation(new Animation("normal",1,"Images/Game/HUD/Training/button_finish.png"));
 		finish->changeAnimation("normal", FORWARD);
 		finish->setRelativeToView(false);
 		finish->setVisible(false);
-		finish->setScale(1.2f);
+		finish->setScale(2.2f);
 		
 		//options = new ArrayList<OptionPanel*>();
 		
-		OptionPanel*optionPanel = new OptionPanel(100,100,"Images/Game/HUD/Training/panel_items.png");
+		OptionPanel*optionPanel = new OptionPanel(150,100,"Images/Game/HUD/Training/panel_items.png");
 		optionPanel->setMin(0);
 		optionPanel->setMax(Global::totalItems);
 		optionPanel->setValue(0);
-		optionPanel->setScale(1.4f);
+		optionPanel->setScale(2.4f);
 		options.add(optionPanel);
 		
-		optionPanel = new OptionPanel(100,180,"Images/Game/HUD/Training/panel_cpu.png");
+		optionPanel = new OptionPanel(150,210,"Images/Game/HUD/Training/panel_cpu.png");
 		optionPanel->setMin(1);
 		optionPanel->setMax(6);
 		optionPanel->setValue(1);
-		optionPanel->setScale(1.4f);
+		optionPanel->setScale(2.4f);
 		options.add(optionPanel);
 		
-		optionPanel = new OptionPanel(100,260,"Images/Game/HUD/Training/panel_camera.png");
+		optionPanel = new OptionPanel(150,320,"Images/Game/HUD/Training/panel_camera.png");
 		optionPanel->setMin(0);
 		optionPanel->setMax(2);
 		optionPanel->setValue(2);
-		optionPanel->setScale(1.4f);
+		optionPanel->setScale(2.4f);
 		options.add(optionPanel);
 		
 		opened = false;

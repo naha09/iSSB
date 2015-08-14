@@ -37,32 +37,32 @@ namespace SmashBros
 	
 	Controls::ControlHUD::ControlHUD()
 	{
-		button_a = new Actor(820, 450);
+		button_a = new Actor(1960, 950);
 		button_a->addAnimation(new Animation("normal", 1, "Images/Game/Controls/button_a.png"));
 		button_a->changeAnimation("normal", FORWARD);
 		button_a->setRelativeToView(false);
-		button_a->setScale(2);
+		button_a->setScale(4);
 		button_a->setAlpha(0.2f);
 		
-		button_b = new Actor(707.5f, 525);
+		button_b = new Actor(1735.1f, 825);
 		button_b->addAnimation(new Animation("normal", 1, "Images/Game/Controls/button_b.png"));
 		button_b->changeAnimation("normal", FORWARD);
 		button_b->setRelativeToView(false);
-		button_b->setScale(2);
+		button_b->setScale(4);
 		button_b->setAlpha(0.2f);
 		
-		button_x = new Actor(820, 337.5f);
+		button_x = new Actor(1960, 637.5f);
 		button_x->addAnimation(new Animation("normal", 1, "Images/Game/Controls/button_xy.png"));
 		button_x->changeAnimation("normal", FORWARD);
 		button_x->setRelativeToView(false);
-		button_x->setScale(2);
+		button_x->setScale(4);
 		button_x->setAlpha(0.2f);
 		
-		button_z = new Actor(790, 60);
+		button_z = new Actor(1900, 120);
 		button_z->addAnimation(new Animation("normal", 1, "Images/Game/Controls/button_z.png"));
 		button_z->changeAnimation("normal", FORWARD);
 		button_z->setRelativeToView(false);
-		button_z->setScale(2);
+		button_z->setScale(4);
 		button_z->setAlpha(0.2f);
 		
 		arrow_up = new Actor(150, 375);
@@ -96,7 +96,7 @@ namespace SmashBros
 		joystickArea = new WireframeActor(0,0,View::getScalingWidth()/2, View::getScalingHeight());
 		joystickArea->relativeToView(false);
 		
-		joystick = new Actor(150, 450);
+		joystick = new Actor(250, 1050);
 		joystick->addAnimation(new Animation("center", 1, "Images/Game/Controls/joystick_center.png"));
 		joystick->addAnimation(new Animation("up", 1, "Images/Game/Controls/joystick_up.png"));
 		joystick->addAnimation(new Animation("up2", 1, "Images/Game/Controls/joystick_up2.png"));
@@ -116,7 +116,7 @@ namespace SmashBros
 		joystick->addAnimation(new Animation("down_right2", 1, "Images/Game/Controls/joystick_down_right2.png"));
 		joystick->changeAnimation("center", FORWARD);
 		joystick->setRelativeToView(false);
-		joystick->setScale(2);
+		joystick->setScale(5);
 		joystick->setAlpha(0.5f);
 		
 		joystickDir = new byte[Global::possPlayers+1];

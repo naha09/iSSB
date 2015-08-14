@@ -49,7 +49,7 @@ namespace SmashBros
 		
 		bg = new GameElement(0,80);
 		Animation*anim = new Animation("normal", 1,1,1);
-		anim->addFrame("Images/Game/Stages/HillsideBattleground/bg2.png");
+		anim->addFrame("Images/Game/Stages/HillsideBattleground/hills.png");
 		bg->addAnimation(anim);
 		bg->changeAnimation("normal", FORWARD);
 		bg->setScale(1.05f);

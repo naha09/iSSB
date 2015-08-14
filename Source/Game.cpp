@@ -10,7 +10,7 @@ namespace SmashBros
 	Game::Game()
 	{
 		//Constructor
-		View::setSize(900,600);
+		View::setSize(2208,1242);
 		firstUpdate = true;
 		drawnOnce = false;
 	}
@@ -49,7 +49,7 @@ namespace SmashBros
 		SDL_FreeSurface(surface);*/
 
 		//Initialize things
-		scaleToWindow(true,900,600);
+		scaleToWindow(true, 2208,1242);
 
 		AssetManager::loadImage("Images/icon.png");
 		setLoadScreen("Images/loading.png");

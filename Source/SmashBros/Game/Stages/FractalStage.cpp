@@ -27,12 +27,12 @@ namespace SmashBros
 		
 		setItemBoundaries(-350, -260, 350, 0);
 		
-		//setBackground("Images/Game/Stages/TestStage/bg.png");
-		//setBackgroundScale(2.8);
+		setBackground("Images/Game/Stages/TestStage/bg.png");
+		setBackgroundScale(1.0);
 
 		loadFile("Images/Game/Stages/TestStage/nyan_cat.png");
-		loadFile("Images/Game/Stages/TestStage/roflsaurus.png");
-		loadFile("Images/Game/Stages/TestStage/swirl.png");
+		//loadFile("Images/Game/Stages/TestStage/roflsaurus.png");
+		//loadFile("Images/Game/Stages/TestStage/swirl.png");
 		loadFile("Images/Game/Stages/TestStage/nic_cage.png");
 	}
 
@@ -263,12 +263,12 @@ namespace SmashBros
 		rotate = 0;
 		isrotating = false;
 		
-		swirl = new GameElement(0,0);
-		Animation*anim = new Animation("normal", 15,15,1);
-		anim->addFrame("Images/Game/Stages/TestStage/swirl.png");
-		swirl->addAnimation(anim);
-		swirl->changeAnimation("normal", FORWARD);
-		swirl->setScale(getScale()*0.8f);
+		//swirl = new GameElement(0,0);
+		//Animation*anim = new Animation("normal", 15,15,1);
+		//anim->addFrame("Images/Game/Stages/TestStage/swirl.png");
+		//swirl->addAnimation(anim);
+		//swirl->changeAnimation("normal", FORWARD);
+		//swirl->setScale(getScale()*0.8f);
 		
 		addAnimation(new Animation("normal",1,"Images/Game/Stages/TestStage/nic_cage.png"));
 		changeAnimation("normal",FORWARD);
@@ -276,7 +276,7 @@ namespace SmashBros
 	
 	FractalStage::NicCage::~NicCage()
 	{
-		delete swirl;
+		//delete swirl;
 	}
 
 	void FractalStage::NicCage::Update(long gameTime)
@@ -305,15 +305,15 @@ namespace SmashBros
 		if(!isrotating)
 		{
 				
-			swirl->setScale(getScale()*0.1f);
+			//swirl->setScale(getScale()*0.1f);
 				
-			swirl->x = x - (float)(46*getScale());
-			swirl->y = y - (float)(3*getScale());
-			swirl->Draw(g, gameTime);
+			//swirl->x = x - (float)(46*getScale());
+			//swirl->y = y - (float)(3*getScale());
+			//swirl->Draw(g, gameTime);
 				
-			swirl->x = x + (float)(34*getScale());
-			swirl->y = y - (float)(2*getScale());
-			swirl->Draw(g, gameTime);
+			//swirl->x = x + (float)(34*getScale());
+			//swirl->y = y - (float)(2*getScale());
+			//swirl->Draw(g, gameTime);
 		}
 		
 		g.setRotation(oldRotation);
@@ -414,7 +414,7 @@ namespace SmashBros
 	    {
 	        c2 = Color((unsigned char)(GameEngine::random()*255),(unsigned char)(GameEngine::random()*255),(unsigned char)(GameEngine::random()*255));
 	    }
-	    Game::setBackgroundColor(Color::RED);
+	    //Game::setBackgroundColor(Color::RED);
 	    //inverted = getNegativeColor(color1.getRGB());
 	    Scale = (GameEngine::random()*4 + 1);
 
